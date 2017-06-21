@@ -1,5 +1,6 @@
 package neu.cn.coolweathermaster;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -24,6 +25,7 @@ import java.io.IOException;
 
 import neu.cn.coolweathermaster.gson.Forecast;
 import neu.cn.coolweathermaster.gson.Weather;
+import neu.cn.coolweathermaster.service.AutoUpdateService;
 import neu.cn.coolweathermaster.util.HttpUtil;
 import neu.cn.coolweathermaster.util.Utility;
 import okhttp3.Call;
@@ -175,8 +177,8 @@ public class WeatherActivity extends AppCompatActivity {
         carWashText.setText(carWash);
         sportText.setText(sport);
         weatherLayout.setVisibility(View.VISIBLE);
-        // Intent intent = new Intent(this, AutoUpdateService.class);
-        // startService(intent);
+        Intent intent = new Intent(this, AutoUpdateService.class);
+        startService(intent);
     }
 
     /**
